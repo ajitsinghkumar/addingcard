@@ -1,0 +1,26 @@
+<div class="container">
+ <div class="row">
+   <div class="offset-3 col-md-6">
+    <h4>Add user details</h4>
+    <form [formGroup]="reactiveform" (ngSubmit)="getreactiveform()">
+        <div class="form-group">
+          <label for="firstname">First name:</label>
+          <input type="text" class="form-control" placeholder="Enter first name" id="pwd" name="firstname" formControlName="firstname">
+          <small *ngIf="reactiveform.get('firstname').touched && reactiveform.get('firstname').hasError('required')" style="color:red">First name is required</small>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last name</label>
+            <input type="text"  class="form-control" placeholder="Enter last name" id="lastname" name="lastname" formControlName="lastname">
+            <small *ngIf="reactiveform.get('lastname').touched && reactiveform.get('lastname').hasError('required')" style="color:red">Last name is required</small>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" placeholder="Enter email" id="email"  name="email" formControlName="email">
+            <small *ngIf="reactiveform.get('email').touched && reactiveform.get('email').hasError('required')" style="color:red">Email is required</small>
+            <small *ngIf="reactiveform.get('email').touched && reactiveform.get('email').hasError('email')" style="color:red">Please enter valid email</small>
+  </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!reactiveform.valid">Submit</button>
+      </form>
+</div>
+</div>
+</div>

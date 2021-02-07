@@ -1,0 +1,40 @@
+
+<div class="container">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search your items" id="searchname" [(ngModel)]="searchvalue">
+      </div>
+      <div class="card"  *ngFor="let data of dataList | searchname:searchvalue" data-toggle="modal" data-target="#userDetails">
+          <img src="assets/images/earth.gif" (click)="getDetailsUser(data._id)">
+        <div class="card-body" style="text-align: left;">
+          <p class="card-text">First Name:&nbsp;&nbsp;{{data.firstname}}</p>
+          <p class="card-text">Last Name:&nbsp;&nbsp;{{data.lastname}}</p>
+          <p class="card-text">Email:&nbsp;&nbsp;{{data.email}}</p>
+        </div>
+      </div>  
+  </div>
+  <div class="modal" id="userDetails">
+    <div class="modal-dialog" style="width:400px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">User details</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="card">
+                <img src="assets/images/earth.gif" >
+              <div class="card-body">
+                <p class="card-text">First Name:&nbsp;&nbsp;{{userDetails.firstname}}</p>
+                <p class="card-text">Last Name:&nbsp;&nbsp;{{userDetails.lastname}}</p>
+                <p class="card-text">Last Name:&nbsp;&nbsp;{{userDetails.email}}</p>
+                <h4 class="card-text">Address</h4>
+                <p class="card-text">
+                    Sri JP Comfort Hotel PG for Gents, Near Odiya Aahar, Balaji Layout, Dental College Road,  Munnekolala, Marathalli, Bangalore, Karnataka, Pin: 560037
+                </p>
+              </div>
+            </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

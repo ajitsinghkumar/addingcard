@@ -1,0 +1,32 @@
+<div class="container">
+ <div class="row">
+  <div class="offset-3 col-md-6">
+    <h4>Add users details</h4>
+    <form #templateform="ngForm" (ngSubmit)="submitform(templateform)" required>
+        <div class="form-group">
+          <label for="firstname">First name:</label>
+          <input type="text" class="form-control" placeholder="Enter first name" id="firstname" name="firstname" ngModel required #firstname="ngModel">
+          <small *ngIf="firstname.invalid && firstname.touched" style="color:red">First name is required</small>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last name</label>
+            <input  class="form-control" placeholder="Enter last name" id="lastname" name="lastname" ngModel required #lastname="ngModel">
+            <small *ngIf="lastname.invalid && lastname.touched" style="color:red">Last name is required</small>
+        </div>
+         <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" email placeholder="Enter email" id="email"  name="email" ngModel required #email="ngModel">
+            <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+                <small *ngIf="email.errors.required" style="color:red">
+                  Email is required
+                </small>
+                <small *ngIf="email.errors.email" style="color:red">
+                  Invalid Email Address
+                </small>
+              </div> 
+             </div>  
+        <button type="submit" class="btn btn-primary" [disabled]="!templateform.valid">Submit</button>
+      </form>
+    </div>
+</div>
+</div>
